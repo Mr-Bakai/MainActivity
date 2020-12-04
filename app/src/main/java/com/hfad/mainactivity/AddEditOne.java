@@ -25,19 +25,19 @@ public class AddEditOne extends AppCompatActivity {
     List<President> presidentList;
     MyApplication myApplication = (MyApplication) this.getApplication();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_one);
-        
+        init();
+    }
+
+    private void init() {
         et_presName = findViewById(R.id.et_PresidentName);
         tv_presId = findViewById(R.id.tv_presidentidNumber);
+        btn_ok = findViewById(R.id.btn_ok);
 
         presidentList = myApplication.getPresidentList();
-
-        btn_ok = findViewById(R.id.btn_ok);
-        btn_canceled = findViewById(R.id.btn_cancelled);
 
         Intent intent = getIntent();
         id = intent.getIntExtra("id", -1); //4 : 33  7th video
@@ -87,13 +87,6 @@ public class AddEditOne extends AppCompatActivity {
 
                 Intent intent = new Intent(AddEditOne.this, MainActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        btn_canceled.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
     }
